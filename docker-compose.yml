@@ -5,7 +5,7 @@ services:
   web:
     build:
       context: ./web
-      dockerfile: /Dockerfile
+      dockerfile: Dockerfile
     container_name: php_damp
     depends_on:
       - db
