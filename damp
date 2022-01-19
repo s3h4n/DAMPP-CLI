@@ -1,37 +1,68 @@
-run_damp() {
-    docker-compose up -d
-    echo ""
-    echo "DAMP : $(tput rev && tput bold)Running$(tput sgr0)"
-}
+#!/bin/sh
 
-stop_damp() {
-    docker-compose stop
-    echo ""
-    echo "DAMP : $(tput rev && tput bold)Stopped$(tput sgr0)"
-}
+# Name : DAMP
 
-remove_damp() {
-    docker-compose down
+# Author : Sehan Weerasekara (S3H4N)
+
+# Date : 19.01.2022
+
+# Description : Script to install and run apache, mysql, phpmyadmin in docker.
+
+# URL : https://github.com/s3h4n/damp.git
+
+banner() {
+    echo " ____    _    __  __ ____    "
+    echo "|  _ \  / \  |  \/  |  _ \   "
+    echo "| | | |/ _ \ | |\/| | |_) |  "
+    echo "| |_| / ___ \| |  | |  __/   "
+    echo "|____/_/   \_\_|  |_|_|      v 1.0"
     echo ""
-    echo "DAMP : $(tput rev && tput bold)Removed$(tput sgr0)"
 }
 
 help() {
-    echo "format : DAMP [argument]"
-    echo "         -s   start damp"
-    echo "         -c   stop damp"
-    echo "         -rm  remove damp"
-    echo ""
-    echo ""
+    echo "format : ./damp [argument]"
+    echo "         -s  - start damp"
+    echo "         -c  - stop damp"
+    echo "         -rm - remove damp"
 }
 
-if [ $1 == -s ]; then
+credentials() {
+    echo "$(tput bold)Server     : http://localhost:8000$(tput sgr0)"
+    echo "$(tput bold)PhpMyAdmin : http://localhost:8080$(tput sgr0)"
+    echo ""
+    echo "$(tput bold) ↪ Default username      : $(tput sgr0)admin"
+    echo "$(tput bold) ↪ Default password      : $(tput sgr0)pass "
+    echo "$(tput bold) ↪ Default root password : $(tput sgr0)root "
+}
+
+run_damp() {
+    echo "$(tput bold)DAMP :$(tput sgr0) Starting containers..."
+    echo ""
+    docker-compose up -d
+    echo ""
+    credentials
+}
+
+stop_damp() {
+    echo "$(tput bold)DAMP :$(tput sgr0) Stopping containers..."
+    echo ""
+    docker-compose stop
+}
+
+remove_damp() {
+    echo "$(tput bold)DAMP :$(tput sgr0) Removing containers..."
+    echo ""
+    docker rm pma_damp php_damp mysql_damp
+}
+
+if [ "$1" = "-s" ]; then
+    banner
     run_damp
-elif [ $1 == -c ]; then
+elif [ "$1" = "-c" ]; then
     stop_damp
-elif [ $1 == -rm ]; then
+elif [ "$1" = "-rm" ]; then
     remove_damp
-elif [ $1 == -h ]; then
+elif [ "$1" = "-h" ]; then
     help
 else
     echo " "
