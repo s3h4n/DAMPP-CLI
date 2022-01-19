@@ -1,0 +1,42 @@
+run_damp() {
+    docker-compose up -d
+    echo ""
+    echo "DAMP : $(tput rev && tput bold)Running$(tput sgr0)"
+}
+
+stop_damp() {
+    docker-compose stop
+    echo ""
+    echo "DAMP : $(tput rev && tput bold)Stopped$(tput sgr0)"
+}
+
+remove_damp() {
+    docker-compose down
+    echo ""
+    echo "DAMP : $(tput rev && tput bold)Removed$(tput sgr0)"
+}
+
+help() {
+    echo "format : DAMP [argument]"
+    echo "         -s   start damp"
+    echo "         -c   stop damp"
+    echo "         -rm  remove damp"
+    echo ""
+    echo ""
+}
+
+if [ $1 == -s ]; then
+    run_damp
+elif [ $1 == -c ]; then
+    stop_damp
+elif [ $1 == -rm ]; then
+    remove_damp
+elif [ $1 == -h ]; then
+    help
+else
+    echo " "
+    echo "Wrong use of command!"
+    echo " "
+    echo "use -h to help."
+    echo " "
+fi
