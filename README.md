@@ -1,6 +1,6 @@
 # DAMP 🚢
 
-DAMP is a linux shell script to setup MySQL, Php, Apache, PhpMyAdmin inside of docker containers.
+DAMP is a linux shell script to setup MySQL, Php, Apache, PhpMyAdmin inside of docker containers on any Ubuntu based system.
 
 ## Prerequisite ✔️
 You must have <a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank">Docker</a> installed in your system.
