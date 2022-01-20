@@ -20,10 +20,13 @@ banner() {
 }
 
 help() {
-    echo "format : ./damp [argument]"
-    echo "         -s  - start damp"
-    echo "         -c  - stop damp"
-    echo "         -rm - remove damp"
+	echo ""
+	echo "format : $(tput bold)./damp$(tput sgr0) [argument]"
+    echo ""
+	echo "         $(tput bold)-s  $(tput sgr0)- start containers"
+	echo "         $(tput bold)-c  $(tput sgr0)- stop containers"
+	echo "         $(tput bold)-rm $(tput sgr0)- remove containers"
+	echo ""
 }
 
 credentials() {
