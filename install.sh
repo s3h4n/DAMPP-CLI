@@ -103,31 +103,31 @@ install() {
     read -p "MySQL Root Password (Default: root)    :: " root_p
 
     if [ -z "$p_name" ]; then
-        dir_name="'example-app'"
+        dir_name="example-app"
     else
         dir_name="$p_name"
     fi
 
     if [ -z "$db" ]; then
-        mysql_db="'test'"
+        mysql_db="test"
     else
         mysql_db="$db"
     fi
 
     if [ -z "$usr" ]; then
-        mysql_user="'admin'"
+        mysql_user="admin"
     else
         mysql_user="$usr"
     fi
 
     if [ -z "$psswd" ]; then
-        mysq_pass="'pass'"
+        mysq_pass="pass"
     else
         mysq_pass="$psswd"
     fi
 
     if [ -z "$root_p" ]; then
-        mysql_root_pass="'root'"
+        mysql_root_pass="root"
     else
         mysql_root_pass="$root_p"
     fi
