@@ -16,8 +16,6 @@ red=$(tput setaf 1)
 yel=$(tput setaf 3)
 blu=$(tput setaf 4)
 
-docker_vesion='3.3'
-
 php_img="php:8.1.1-apache"
 php_port="8000:80"
 
@@ -51,7 +49,7 @@ create_dockerfile() {
 create_docker_compose() {
     touch docker-compose.yml
     echo "" >>docker-compose.yml
-    echo "version: ${docker_version}" >>docker-compose.yml
+    echo "version: '3.3'" >>docker-compose.yml
     echo "" >>docker-compose.yml
     echo "services:" >>docker-compose.yml
     echo "" >>docker-compose.yml
