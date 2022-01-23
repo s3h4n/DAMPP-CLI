@@ -97,7 +97,7 @@ install() {
     read -p "Project Name   (Default: example-app)  :: " p_name
     read -p "MySQL Database (Default: test)         :: " db
     read -p "MySQL Username (Default: admin)        :: " usr
-    read -p "MySQL Password (Default: pass)         :: " psswd
+    read -p "MySQL Password (Default: pass)         :: " pss
     read -p "MySQL Root Password (Default: root)    :: " root_p
 
     if [ -z "$p_name" ]; then
@@ -118,10 +118,10 @@ install() {
         mysql_user=$usr
     fi
 
-    if [ -z "$psswd" ]; then
+    if [ -z "$pss" ]; then
         mysq_pass=pass
     else
-        mysq_pass=$psswd
+        mysq_pass=$pss
     fi
 
     if [ -z "$root_p" ]; then
