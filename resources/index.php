@@ -1,9 +1,3 @@
-<?php
-/* PHP */
-?>
-
-<!-- Main -->
-
 <!doctype html>
 <html lang='en'>
 
@@ -15,11 +9,15 @@
 
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: Ubuntu, sans-serif;
         }
 
         div {
             padding: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         .center {
@@ -55,10 +53,6 @@
             background-color: black;
             color: white;
             font-weight: bold;
-        }
-
-        a {
-            text-decoration: none;
         }
 
         .tracking-in-contract {
@@ -105,7 +99,7 @@
 
     <div class='center'>
         <span class='tracking-in-contract'>
-            <a href='https://github.com/s3h4n/damp.git'>
+            <a href='https://github.com/s3h4n/dampp.git'>
                 <h1 style='color:crimson;'>DAMP</h1>
             </a>
             <h3>Dockerized Apache MySQL PHP</h3>
@@ -114,7 +108,8 @@
         <hr />
 
         <div>
-            <p>Customize <code style='color:deeppink; font-weight:bold;'>damp/web/src/Index.php</code> to see the changes.</p>
+            <p>Customize <code style='color:deeppink; font-weight:bold;'>damp/index.php</code> to see the
+                changes.</p>
         </div>
 
         <hr />
@@ -135,9 +130,3 @@
 </body>
 
 </html>
-
-<!-- End of Main -->
-
-<?php
-/* PHP */
-?>

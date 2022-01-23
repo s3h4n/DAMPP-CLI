@@ -1,0 +1,129 @@
+#!/bin/sh
+
+# Name : DAMPP
+# Version : 2.0
+# Author : Sehan Weerasekara (S3H4N)
+# Date : 19.01.2022
+# Last Update : 23.01.2022
+# Description : Script to install and run apache, mysql, phpmyadmin in docker.
+# URL : https://github.com/s3h4n/dampp.git
+
+res=$(tput sgr0)
+bld=$(tput bold)
+rev=$(tput rev)
+grn=$(tput setaf 2)
+red=$(tput setaf 1)
+yel=$(tput setaf 3)
+blu=$(tput setaf 4)
+
+banner() {
+    echo "${bld}"
+    echo "      ____    _    __  __ ____  ____       "
+    echo "     |  _ \  / \  |  \/  |  _ \|  _ \      "
+    echo "     | | | |/ _ \ | |\/| | |_) | |_) |     "
+    echo "     | |_| / ___ \| |  | |  __/|  __/      "
+    echo "     |____/_/   \_\_|  |_|_|   |_|    v2.0 "
+    echo "${res}"
+    echo "${rev}${bld}DAMPP : Dockerized Apache MySQL Php PhpMyAdmin${res}"
+    echo ""
+}
+
+help_page() {
+    echo ""
+    echo "Usage: ./dampp [COMMAND]"
+    echo ""
+    echo "Options:"
+    echo "  up      -  Start DAMPP containers"
+    echo "  down    -  Stop DAMPP containers"
+    echo "  remove  -  Remove DAMPP containers"
+    echo "  show    -  Show DAMPP containers"
+    echo ""
+    echo "Default MySQL Credentials:"
+    echo "  Database       -  test"
+    echo "  Username       -  admin"
+    echo "  Password       -  pass"
+    echo "  Root password  -  root"
+    echo ""
+    echo "Default Ports:"
+    echo "  8000       -  Apache server"
+    echo "  8080       -  PhpMyAdmin"
+    echo "  6033:3306  -  MySQL server"
+    echo ""
+    echo "Run './dampp help' to access this menu."
+    echo ""
+    echo "Please use 'docker --help' to learn more about using docker containers."
+    echo ""
+}
+
+show() {
+    echo ""
+    docker ps
+    echo ""
+}
+
+start() {
+    docker-compose stop
+    docker-compose up -d
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "${bld}DAMPP : ${res}${bld}${grn}Running!${res}"
+        echo ""
+        echo "Default Ports:"
+        echo "${bld}    Server     : http://localhost:8000${res}"
+        echo "${bld}    PhpMyAdmin : http://localhost:8080${res}"
+    else
+        echo "${bld}DAMPP : ${res}${bld}${grn}Failed!${res}"
+        echo "DAMPP is already running or an error occured."
+    fi
+    echo ""
+}
+
+stop() {
+    docker-compose start
+    docker-compose stop
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "${bld}DAMPP : ${res}${bld}${grn}Stopped!${res}"
+    else
+        echo "${bld}DAMPP : ${res}${bld}${grn}Failed!${res}"
+        echo "DAMPP has already stopped or an error occured."
+    fi
+    echo ""
+}
+
+remove() {
+    docker-compose stop
+    docker-compose down
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "${bld}DAMPP : ${res}${bld}${grn}Removed!${res}"
+    else
+        echo "${bld}DAMPP : ${res}${bld}${grn}Failed!${res}"
+        echo "DAMPP has already removed or an error occured."
+    fi
+    echo ""
+}
+
+if [ "$1" = "up" ] || [ "$1" = "UP" ]; then
+    banner
+    start
+elif [ "$1" = "down" ] || [ "$1" = "DOWN" ]; then
+    banner
+    stop
+elif [ "$1" = "remove" ] || [ "$1" = "REMOVE" ]; then
+    banner
+    remove
+elif [ "$1" = "show" ] || [ "$1" = "SHOW" ]; then
+    banner
+    show
+elif [ "$1" = "help" ] || [ "$1" = "HELP" ]; then
+    banner
+    help_page
+else
+    echo ""
+    echo "Wrong usage of commands!"
+    help_page
+fi
