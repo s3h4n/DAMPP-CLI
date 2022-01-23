@@ -137,11 +137,10 @@ install() {
 
     mkdir $dir_name $dir_name/web && cd $dir_name
 
-    sudo apt-get update
-    sudo apt-get install wget
-
     wget https://raw.githubusercontent.com/s3h4n/dampp/main/resources/dampp
     wget -P web/ https://raw.githubusercontent.com/s3h4n/dampp/main/resources/index.php
+
+    chmod +x dampp
 
     create_dockerfile
     create_docker_compose
@@ -160,3 +159,4 @@ install() {
 }
 
 install
+
