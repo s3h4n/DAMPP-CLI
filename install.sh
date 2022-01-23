@@ -89,7 +89,10 @@ create_docker_compose() {
     echo "    ports:" >>docker-compose.yml
     echo "      - $pma_port" >>docker-compose.yml
     echo "    environment:" >>docker-compose.yml
-    echo "      - PMA_ARBITRARY=1" >>docker-compose.yml
+    echo "      - MYSQL_ROOT_PASSWORD: $mysql_root_pass" >>docker-compose.yml
+    echo "      - MYSQL_DATABASE: $mysql_user" >>docker-compose.yml
+    echo "      - MYSQL_PASSWORD: $mysql_pass" >>docker-compose.yml
+    echo "" >>docker-compose.yml
 }
 
 install() {
@@ -159,4 +162,3 @@ install() {
 }
 
 install
-
