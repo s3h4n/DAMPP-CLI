@@ -57,7 +57,7 @@ help_page() {
 
 show() {
     echo ""
-    docker ps
+    docker ps -a
     echo ""
 }
 
