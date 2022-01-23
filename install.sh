@@ -49,7 +49,7 @@ create_dockerfile() {
 create_docker_compose() {
     touch docker-compose.yml
     echo "" >>docker-compose.yml
-    echo "version: '3.3'" >>docker-compose.yml
+    echo "version: ${'3.3'}" >>docker-compose.yml
     echo "" >>docker-compose.yml
     echo "services:" >>docker-compose.yml
     echo "" >>docker-compose.yml
