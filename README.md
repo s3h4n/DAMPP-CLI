@@ -8,11 +8,21 @@ If your system is **Ubuntu based**, and it doesn't have Docker, you can install 
 
 ## Installation ✨
 
-
+Paste following command in your terminal.
+```
+sh -c "(curl -sSL https://raw.githubusercontent.com/s3h4n/dampp/main/install.sh | sh)"
+```
 
 ## Usage 🔥
 
-
+After installing paste this command to start DAMPP.
+```
+cd $dir_name && ./dampp up
+```
+Use help see more.
+```
+./damp help
+```
 
 ## Contributing 🤝
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

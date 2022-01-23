@@ -135,19 +135,24 @@ install() {
     name_mysql="dampp-$dir_name-mysql"
     name_pma="dampp-$dir_name-pma"
 
-    mkdir $dir_name $dir_name/web 
-    cd $dir_name
-    wget 
-    cd web
-    wget
-    cd ..
+    mkdir $dir_name $dir_name/web && cd $dir_name
+
+    sudo apt-get update
+    sudo apt-get install wget
+
+    wget https://raw.githubusercontent.com/s3h4n/dampp/main/resources/dampp
+    wget -P web/ https://raw.githubusercontent.com/s3h4n/dampp/main/resources/index.php
+
     create_dockerfile
     create_docker_compose
     docker-compose build && docker-compose up -d && docker-compose stop
 
     if [ "$?" = 0 ]; then
         echo ""
-        echo "${bld}${grn}Success!${res}${bld} DAMPP has been installed in $HOME/$dir_name.${res}"
+        echo "${bld}${grn}Success!${res}${bld} DAMPP has been installed in $dir_name.${res}"
+        echo ""
+        echo "Run 'cd $dir_name && ./dampp up' and see the magic!"
+        echo ""
     else
         echo ""
         echo "${bld}${red}Failed!${res}${bld} DAMPP has already installed or something went wrong.${res}"
