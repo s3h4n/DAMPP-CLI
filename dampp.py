@@ -98,43 +98,43 @@ def add_sample_site(line=""):
 def get_inp():
     global project, db, user, psswd, root_psswd, php_port, mysql_port, pma_port
 
-    print("\n=== PROJECT DETAILS ======================\n")
+    print("\n === PROJECT DETAILS ======================\n")
 
-    project = input("Project Name \t(Default: my-app)\t:: ") or "my-app"
+    project = input(" Project Name \t(Default: my-app)\t:: ") or "my-app"
 
-    print("\n\n=== MySQL CREDENTIALS ====================\n")
+    print("\n\n === MySQL CREDENTIALS ====================\n")
 
-    db = input("Database Name \t(Default: test)\t\t:: ") or "test"
-    user = input("Username \t(Default: admin)\t:: ") or "admin"
-    psswd = input("Password \t(Default: pass)\t\t:: ") or "pass"
-    root_psswd = input("Root Password \t(Default: root)\t\t:: ") or "root"
+    db = input(" Database Name \t(Default: test)\t\t:: ") or "test"
+    user = input(" Username \t(Default: admin)\t:: ") or "admin"
+    psswd = input(" Password \t(Default: pass)\t\t:: ") or "pass"
+    root_psswd = input(" Root Password \t(Default: root)\t\t:: ") or "root"
 
-    print("\n\n=== PORTS ================================\n")
+    print("\n\n === PORTS ================================\n")
 
     try:
-        php_port = int(input("PHP \t\t(Default: 8000)\t\t:: ") or "8000")
+        php_port = int(input(" PHP \t\t(Default: 8000)\t\t:: ") or "8000")
         if ((php_port <= 0) or (php_port > 65535)):
             exit()
     except:
-        print("\nInvalid port number. Process aborted.")
+        print("\n Invalid port number. Process aborted.")
         sys.exit()
 
     try:
         mysql_port = int(
-            input("MySQL \t\t(Default: 6033)\t\t:: ") or "6033")
+            input(" MySQL \t\t(Default: 6033)\t\t:: ") or "6033")
         if ((mysql_port <= 0) or (mysql_port > 65535) or (mysql_port == php_port)):
             exit()
     except:
-        print("\nInvalid port number. Process aborted.")
+        print("\n Invalid port number. Process aborted.")
         sys.exit()
 
     try:
         pma_port = int(
-            input("PhpMyAdmin \t(Default: 8080)\t\t:: ") or "8080")
+            input(" PhpMyAdmin \t(Default: 8080)\t\t:: ") or "8080")
         if ((pma_port <= 0) or (pma_port > 65535) or (pma_port == php_port) or (pma_port == mysql_port)):
             exit()
     except:
-        print("\nInvalid port number. Process aborted.")
+        print("\n Invalid port number. Process aborted.")
         sys.exit()
 
     return 0
@@ -149,38 +149,39 @@ def install():
         try:
             os.mkdir(f"{project}")
         except FileExistsError:
-            print(f"\n{project} already exists.")
+            print(f" \n{project} already exists.")
             sys.exit()
         except Exception:
-            print(f"\nAn error occured while creating {project}.")
+            print(f"\n An error occured while creating {project}.")
             sys.exit()
 
         try:
-            os.mkdir(f"{project}/web")
+            os.mkdir(f" {project}/web")
         except FileExistsError:
-            print(f"\n{project}/web already exists.")
+            print(f"\n {project}/web already exists.")
             sys.exit()
         except Exception:
-            print(f"\nAn error occured while creating {project}/web.")
+            print(f"\n An error occured while creating {project}/web.")
             sys.exit()
 
         try:
             add_dockerfile()
         except:
-            print(f"\nAn error occured while creating {project}/Dockerfile.")
+            print(f"\n An error occured while creating {project}/Dockerfile.")
             sys.exit()
 
         try:
             add_dockercompose()
         except:
             print(
-                f"\nAn error occured while creating {project}/docker-compose.yml")
+                f"\n An error occured while creating {project}/docker-compose.yml")
             sys.exit()
 
         try:
             add_sample_site()
         except:
-            print(f"\nAn error occured while creating {project}/web/index.php")
+            print(
+                f"\n An error occured while creating {project}/web/index.php")
             sys.exit()
 
         try:
@@ -200,8 +201,8 @@ def install():
         except:
             sys.exit()
 
-        print(f"\nDAMPP has been successfully installed in {project}")
-        print(f"\nRun 'cd {project} && ./dampp up' and see the magic!")
+        print(f"\n DAMPP has been successfully installed in {project}")
+        print(f"\n Run 'cd {project} && ./dampp up' and see the magic!")
 
 
 install()
