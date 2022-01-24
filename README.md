@@ -11,7 +11,7 @@ If your system is **Ubuntu based**, and it doesn't have Docker, you can install 
 
 Paste following command in your terminal.
 ```
-wget https://raw.githubusercontent.com/s3h4n/dampp/main/install.sh && sh install.sh && rm -r install.sh
+wget https://raw.githubusercontent.com/s3h4n/dampp/main/dampp.py && python3 dampp.py && rm -r dampp.py
 ```
 
 ## Usage 🔥
