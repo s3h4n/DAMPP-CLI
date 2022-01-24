@@ -1,11 +1,19 @@
 #!/bin/sh
 
 # Name : DAMPP
-# Version : 2.0
+
+# Version : 2.1
+
 # Author : Sehan Weerasekara (S3H4N)
+
 # Date : 19.01.2022
-# Last Update : 23.01.2022
-# Description : Script to install and run apache, mysql, phpmyadmin in docker.
+
+# Description : Script to install and run apache, mysql, phpmyadmin in docker containers.
+
+# Last Update : 24.01.2022
+
+# Changelog : Rewrote setup file using Python.
+
 # URL : https://github.com/s3h4n/dampp.git
 
 res=$(tput sgr0)
@@ -22,7 +30,7 @@ banner() {
     echo "     |  _ \  / \  |  \/  |  _ \|  _ \      "
     echo "     | | | |/ _ \ | |\/| | |_) | |_) |     "
     echo "     | |_| / ___ \| |  | |  __/|  __/      "
-    echo "     |____/_/   \_\_|  |_|_|   |_|    v2.0 "
+    echo "     |____/_/   \_\_|  |_|_|   |_|    v2.1 "
     echo "${res}"
     echo "${rev}${bld}DAMPP : Dockerized Apache MySQL Php PhpMyAdmin${res}"
     echo ""
