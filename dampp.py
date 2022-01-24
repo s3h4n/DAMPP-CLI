@@ -70,7 +70,7 @@ def add_dockercompose(line="", t=" "):
         line += f"{t*4}environment:\n"
         line += f"{t*6}MYSQL_ROOT_PASSWORD: {root_psswd}\n"
         line += f"{t*6}MYSQL_DATABASE: {db}\n"
-        line += f"{t*6}USER: {user}\n"
+        line += f"{t*6}MYSQL_USER: {user}\n"
         line += f"{t*6}MYSQL_PASSWORD: {psswd}\n"
         line += f"{t*4}ports:\n"
         line += f"{t*6}- 3306:{mysql_port}\n"
