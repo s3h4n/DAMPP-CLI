@@ -73,10 +73,10 @@ create_docker_compose() {
     echo "    command: --default-authentication-plugin=mysql_native_password" >>docker-compose.yml
     echo "    restart: always" >>docker-compose.yml
     echo "    environment:" >>docker-compose.yml
-    echo "      MYSQL_ROOT_PASSWORD: $mysql_root_pass" >>docker-compose.yml
-    echo "      MYSQL_DATABASE: $mysql_db" >>docker-compose.yml
-    echo "      MYSQL_USER: $mysql_user" >>docker-compose.yml
-    echo "      MYSQL_PASSWORD: $mysql_pass" >>docker-compose.yml
+    echo "      MYSQL_ROOT_PASSWORD: root" >>docker-compose.yml
+    echo "      MYSQL_DATABASE: db" >>docker-compose.yml
+    echo "      MYSQL_USER: admin" >>docker-compose.yml
+    echo "      MYSQL_PASSWORD: pass" >>docker-compose.yml
     echo "    ports:" >>docker-compose.yml
     echo "      - $mysql_port" >>docker-compose.yml
     echo "" >>docker-compose.yml
