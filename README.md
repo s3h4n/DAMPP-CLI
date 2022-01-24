@@ -18,7 +18,7 @@ wget https://raw.githubusercontent.com/s3h4n/dampp/main/dampp.py && python3 damp
 
 After installing paste this command to start DAMPP.
 ```
-cd $dir_name && ./dampp up
+cd your-app-name-here && ./dampp up
 ```
 Use help see more.
 ```
