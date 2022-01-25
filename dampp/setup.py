@@ -131,7 +131,6 @@ def run():
     cmd.run(f"cp dampp/scripts/dampp {project}/")
     cmd.run(f"echo && cd {project}")
     cmd.run(f"chmod +x dampp")
-    cmd.run(f"docker-compose build && docker-compose up -d && docker-compose stop")
 
     # Print success message
     msg.success(project)
