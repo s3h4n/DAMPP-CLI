@@ -13,7 +13,7 @@
 
 """
 
-from dampp import setup
+from dampp import install
 
 if __name__ == '__main__':
-    setup.run()
+    install.run()
