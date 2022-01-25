@@ -1,18 +1,3 @@
-"""
-    Name : DAMPP
-
-    Version : 2.2
-
-    Author : Sehan Weerasekara (S3H4N)
-
-    Date : 19.01.2022
-
-    Description : Script to install and run apache, mysql, phpmyadmin in docker containers.
-
-    URL : https://github.com/s3h4n/dampp.git
-
-"""
-
 # Import
 from .handlers import File
 from .handlers import Command

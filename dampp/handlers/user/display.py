@@ -22,4 +22,4 @@ class Display:
         print(
             f"\nDAMPP has been successfully installed in {project_name}")
         print(
-            f"\nRun 'cd {project_name} && ./dampp u' and see the magic!")
+            f"\nRun 'cd {project_name} && ./dampp run' and see the magic!")
