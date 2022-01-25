@@ -13,7 +13,7 @@ banner() {
     echo "|  _ \  / \  |  \/  |  _ \|  _ \      "
     echo "| | | |/ _ \ | |\/| | |_) | |_) |     "
     echo "| |_| / ___ \| |  | |  __/|  __/      "
-    echo "|____/_/   \_\_|  |_|_|   |_|    v2.1 "
+    echo "|____/_/   \_\_|  |_|_|   |_|    v2.2 "
     echo ""
     echo "DAMPP : Dockerized Apache MySQL Php PhpMyAdmin"
     echo ""
@@ -95,20 +95,19 @@ remove() {
     echo ""
 }
 
-
-opt=$?
+opt=$1
 opt=${opt,,}
 
 if [ "$opt" = "run" ]; then
     banner
     start
-elif [ "$opt" = "d" ] || [ "$opt" = "D" ]; then
+elif [ "$opt" = "stop" ]; then
     banner
     stop
-elif [ "$opt" = "rm" ] || [ "$opt" = "RM" ]; then
+elif [ "$opt" = "rm" ]; then
     banner
     remove
-elif [ "$opt" = "h" ] || [ "$opt" = "H" ]; then
+elif [ "$opt" = "help" ]; then
     banner
     help_page
 else
