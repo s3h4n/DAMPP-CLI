@@ -1,0 +1,118 @@
+#!/bin/bash
+# Name : DAMPP
+# Version : 2.1
+# Author : Sehan Weerasekara (S3H4N)
+# Date : 19.01.2022
+# Description : Script to install and run apache, mysql, phpmyadmin in docker containers.
+# URL : https://github.com/s3h4n/dampp.git
+
+# prints the program name.
+banner() {
+    echo ""
+    echo " ____    _    __  __ ____  ____       "
+    echo "|  _ \  / \  |  \/  |  _ \|  _ \      "
+    echo "| | | |/ _ \ | |\/| | |_) | |_) |     "
+    echo "| |_| / ___ \| |  | |  __/|  __/      "
+    echo "|____/_/   \_\_|  |_|_|   |_|    v2.1 "
+    echo ""
+    echo "DAMPP : Dockerized Apache MySQL Php PhpMyAdmin"
+    echo ""
+}
+
+# find the service ports from docker-compose.yml.
+find_port() {
+    var=$(grep -E "[[:digit:]]{4,10}" "docker-compose.yml")
+    arr=(${var//"-"/ })
+    web=(${arr[0]//":"/ })
+    db=(${arr[1]//":"/ })
+    pma=(${arr[2]//":"/ })
+}
+
+# help prompt.
+help_page() {
+    echo ""
+    echo "Usage: ./dampp [COMMAND]"
+    echo ""
+    echo "Options:"
+    echo "  run     -  Start DAMPP containers"
+    echo "  stop    -  Stop DAMPP containers"
+    echo "  rm      -  Remove DAMPP containers"
+    echo ""
+    echo "Ports:"
+    echo "  $web       -  Apache server"
+    echo "  $pma       -  PhpMyAdmin"
+    echo "  $db       -  MySQL server"
+    echo ""
+    echo "Run "./dampp help" to access this menu."
+    echo ""
+    echo "Please use "docker --help" to learn more about using docker containers."
+    echo ""
+}
+
+# start the containers.
+start() {
+    docker-compose up -d
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "DAMPP : Running!"
+        echo ""
+        echo "Default Ports:"
+        echo "    Server     : http://localhost:$web"
+        echo "    PhpMyAdmin : http://localhost:$pma"
+    else
+        echo "DAMPP : Failed!"
+        echo "DAMPP is already running or an error occured."
+    fi
+    echo ""
+}
+
+# stop the containers.
+stop() {
+    docker-compose stop
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "DAMPP : Stopped!"
+    else
+        echo "DAMPP : Failed!"
+        echo "DAMPP has already stopped or an error occured."
+    fi
+    echo ""
+}
+
+# remove the containers.
+remove() {
+    docker-compose down
+
+    echo ""
+    if [ "$?" = 0 ]; then
+        echo "DAMPP : Removed!"
+    else
+        echo "DAMPP : Failed!"
+        echo "DAMPP has already removed or an error occured."
+    fi
+    echo ""
+}
+
+
+opt=$?
+opt=${opt,,}
+
+if [ "$opt" = "run" ]; then
+    banner
+    start
+elif [ "$opt" = "d" ] || [ "$opt" = "D" ]; then
+    banner
+    stop
+elif [ "$opt" = "rm" ] || [ "$opt" = "RM" ]; then
+    banner
+    remove
+elif [ "$opt" = "h" ] || [ "$opt" = "H" ]; then
+    banner
+    help_page
+else
+    echo ""
+    echo "Wrong usage of commands!"
+    help_page
+fi
