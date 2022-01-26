@@ -164,8 +164,8 @@ class Handler:
         build.document(path_app, file_app)
 
         # finalize the project
-        cmd.run(f"echo && cd {project}")
-        cmd.run(f"chmod +x dampp")
+        cmd.run(f"echo")
+        cmd.run(f"cd {project} && chmod +x dampp")
 
         # print success state
         msg.success(project)
