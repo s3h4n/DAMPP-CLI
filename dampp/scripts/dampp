@@ -98,6 +98,8 @@ remove() {
 opt=$1
 opt=${opt,,}
 
+find_port
+
 if [ "$opt" = "run" ]; then
     banner
     start
