@@ -30,7 +30,7 @@ class App:
         string = self.string
 
         # details section
-        string += '#!/bin/bash'
+        string += '#!/bin/bash\n'
         string += '# Name : DAMPP\n'
         string += '# Version : 2.1\n'
         string += '# Author : Sehan Weerasekara (S3H4N)\n'
