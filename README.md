@@ -9,8 +9,9 @@ If your system is **Ubuntu based**, and it doesn't have Docker, you can install 
 
 ## Installation ✨
 
-Clone this repository and paste following command in your terminal.
+Paste following commands in your terminal.
 ```
+git clone https://github.com/s3h4n/dampp.git
 python3 -m dampp install
 ```
 
