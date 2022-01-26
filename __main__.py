@@ -2,10 +2,10 @@
     * @import Handler from src
 """
 
-from src import Handler
+from .src import Handler
 
 
-def __main__(self) -> None:
+def __main__() -> None:
     """
         * declaring private fucntion __main__()
 

@@ -3,8 +3,14 @@
     * @import module packages as p
 """
 
-import constants as c
-import packages as p
+from . import constants as c
+from ..packages import App
+from ..packages import File
+from ..packages import Command
+from ..packages import Create
+from ..packages import Service
+from ..packages import Select
+from ..packages import Display
 
 
 class Handler:
@@ -48,10 +54,10 @@ class Handler:
         sec_db = c.SECTION_2  # database section
         sec_port = c.SECTION_3  # port section
 
-        cmd = p.Command()  # instance from command class
-        msg = p.Display()  # instance from display class
-        choice = p.Select()  # instance from select class
-        app = p.App()  # instance from app class
+        cmd = Command()  # instance from command class
+        msg = Display()  # instance from display class
+        choice = Select()  # instance from select class
+        app = App()  # instance from app class
 
         cmd.run("clear")  # clear the console
 
@@ -91,9 +97,9 @@ class Handler:
             print(f"Error : Port is used for \
                     {default_web[0] if (port_pma==port_web) else default_web[0]}.")
 
-        srv = p.Service(project)  # instance from service class
-        fp = p.File(project)  # instance from file class
-        build = p.Create(project)  # instance from create class
+        srv = Service(project)  # instance from service class
+        fp = File(project)  # instance from file class
+        build = Create(project)  # instance from create class
 
         # generate details of web service
         srv_web = srv.web(port=port_web)
