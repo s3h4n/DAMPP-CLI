@@ -11,8 +11,8 @@ If your system is **Ubuntu based**, and it doesn't have Docker, you can install 
 
 Paste following commands in your terminal.
 ```
-git clone https://github.com/s3h4n/dampp-cli.git
-python3 -m dampp-cli install
+git clone https://github.com/s3h4n/DAMPP-CLI.git
+python3 -m DAMPP-CLI install
 ```
 
 ## Usage 🔥
